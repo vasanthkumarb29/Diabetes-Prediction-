@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction</title>
+</head>
+<style>
+   body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(45deg, #00ccff, #00ffcc);
+            background-size: 400% 400%;
+            animation: waveBackground 10s ease infinite;
+   }        
+   @keyframes gradientBackground {
+            0% {
+                background-position: 0 0;
+            }
+            50% {
+                background-position: 100% 0;
+            }
+            100% {
+                background-position: 0 0;
+            }
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .result h2 {
+            color: #333;
+        }
+
+</style>
+<body>
+    <h1> Welcome to Diabetes Prediction System</h1>
+    <h2>It's just a prediction; do consult with a Doctor ????</h2> <br />
+    <form action="/predict" method="post">
+        <h4> Please fill out the fields correctly </h4>
+        <label for="pregnancies">Pregnancies:</label>
+        <input type="number" name="pregnancies" step="any" required><br>
+        <label for="glucose">Glucose:</label>
+        <input type="number" name="glucose" step="any" required><br>
+        <label for="blood_pressure">Blood pressure</label>
+        <input type="number" name="blood_pressure" step="any" required><br>
+        <label for="skin_thickness">Skin Thickness</label>
+        <input type="number" name="skin_thickness" step="any" required><br>
+        <label for="insulin">Insulin</label>
+        <input type="number" name="insulin" step="any" required><br>
+        <label for="bmi">BMI</label>
+        <input type="number" name="bmi" step="any" required><br>
+        <label for="dpf">Diabetes Pedegree function</label>
+        <input type="number" name="dpf" step="any" required><br>
+        <label for="age">Age</label>
+        <input type="number" name="age" step="any" required><br>
+
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+    <div class="result">
+        <h2>{{ prediction_text }}</h2>
+    </div>
+    {% endif %}
+</body>
+</html>
